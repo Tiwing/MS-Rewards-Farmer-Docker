@@ -2,7 +2,7 @@
     rewards-farmer1:
       image: farmer_ms:latest
       container_name: farmer1
-      shm_size: 2gb
+      shm_size: 8gb
       command: bash -c 'python3 main.py -d https://discord.com/api/webhooks/1210324650182312057/5gSHH25ScFPG0UhHFcL-5qngtmohGOrtDU1Akjl7vtz2ze-WQqjevVTan7nZn61J_n3y -vn'
       volumes:
         - ./accounts.json:/app/accounts.json
@@ -12,7 +12,7 @@
     rewards-farmer2:
       image: farmer_ms:latest
       container_name: farmer2
-      shm_size: 2gb
+      shm_size: 8gb
       command: bash -c 'python3 main.py -d https://discord.com/api/webhooks/1210324650182312057/5gSHH25ScFPG0UhHFcL-5qngtmohGOrtDU1Akjl7vtz2ze-WQqjevVTan7nZn61J_n3y -vn'
       volumes:
         - ./accounts.json:/app/accounts2.json
