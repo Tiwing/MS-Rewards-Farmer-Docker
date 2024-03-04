@@ -3,7 +3,7 @@
       image: farmer_ms:latest
       container_name: farmer1
       shm_size: 2gb
-      command: bash -c "'pip install --upgrade -r requirements.txt' && bash -c 'python3 main.py -d https://discord.com/api/webhooks/1210324650182312057/5gSHH25ScFPG0UhHFcL-5qngtmohGOrtDU1Akjl7vtz2ze-WQqjevVTan7nZn61J_n3y -vn'"
+      command: bash -c 'python3 main.py -d https://discord.com/api/webhooks/1210324650182312057/5gSHH25ScFPG0UhHFcL-5qngtmohGOrtDU1Akjl7vtz2ze-WQqjevVTan7nZn61J_n3y -vn'
       volumes:
         - ./accounts.json:/app/accounts.json
         - ./logs:/app/logs1
@@ -13,7 +13,7 @@
       image: farmer_ms:latest
       container_name: farmer2
       shm_size: 2gb
-      command: bash -c "'pip install --upgrade -r requirements.txt' && bash -c 'python3 main.py -d https://discord.com/api/webhooks/1210324650182312057/5gSHH25ScFPG0UhHFcL-5qngtmohGOrtDU1Akjl7vtz2ze-WQqjevVTan7nZn61J_n3y -vn'"
+      command: bash -c 'python3 main.py -d https://discord.com/api/webhooks/1210324650182312057/5gSHH25ScFPG0UhHFcL-5qngtmohGOrtDU1Akjl7vtz2ze-WQqjevVTan7nZn61J_n3y -vn'
       volumes:
         - ./accounts.json:/app/accounts2.json
         - ./logs:/app/logs2
