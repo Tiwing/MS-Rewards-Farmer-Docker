@@ -38,11 +38,7 @@
 
    `docker build --build-arg VNC_PASSWORD=<set_vnc_password> -t <nom_voulue_de_l'image>:latest .`
 
-2. (Windows Only) Make sure Visual C++ redistributable DLLs are installed
-
-   If they're not, install the current "vc_redist.exe" from this [link](https://learn.microsoft.com/en-GB/cpp/windows/latest-supported-vc-redist?view=msvc-170) and reboot your computer
-
-4. Edit the `accounts.json.sample` with your accounts credentials and rename it by removing `.sample` at the end.
+3. Edit the `accounts.json.sample` with your accounts credentials and rename it by removing `.sample` at the end.
 
    The "proxy" field is not mandatory, you can omit it if you don't want to use proxy (don't keep it as an empty string, remove the line completely).
 
@@ -63,7 +59,7 @@
    ]
    ```
 
-5. Go crontab -e:
+4. Go crontab -e:
     ```text
       # MICROSOFT BOT
 
