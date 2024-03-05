@@ -36,14 +36,9 @@
 
 1. Install requirements with the following command :
 
-   `pip install -r requirements.txt`
+   `docker build --build-arg VNC_PASSWORD=<set_vnc_password> -t <nom_voulue_de_l'image>:latest .`
 
-   Upgrade all required with the following command:
-   `pip install --upgrade -r requirements.txt`
-
-2. Make sure you have Chrome installed
-
-3. (Windows Only) Make sure Visual C++ redistributable DLLs are installed
+2. (Windows Only) Make sure Visual C++ redistributable DLLs are installed
 
    If they're not, install the current "vc_redist.exe" from this [link](https://learn.microsoft.com/en-GB/cpp/windows/latest-supported-vc-redist?view=msvc-170) and reboot your computer
 
@@ -68,9 +63,13 @@
    ]
    ```
 
-5. Run the script:
+5. Go crontab -e:
+    ```text
+      # MICROSOFT BOT
 
-   `python main.py`
+      0 1 * * * sleep $(shuf -i 1-15 -n 1)m && /usr/bin/docker-compose -f /<path_to_repository>/docker-compose.yml up -d --build
+
+    ```
 
 ---
 
