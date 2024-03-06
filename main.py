@@ -10,6 +10,7 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
+import os
 
 import pandas as pd
 import psutil
@@ -31,11 +32,13 @@ POINTS_COUNTER = 0
 
 
 def main():
+    print("test", Utils.randomSeconds(5, 10))
     args = argumentParser()
     notifier = Notifier(args)
     setupLogging(args.verbosenotifs, notifier)
+    loadedAccounts = setupAccounts()
     # Register the cleanup function to be called on script exit
-    atexit.register(cleanup_chrome_processes)
+    atexit.register(cleanupChromeProcesses)
 
     # Load previous day's points data
     previous_points_data = load_previous_points_data()
