@@ -39,7 +39,6 @@ def main():
     loadedAccounts = setupAccounts()
     # Register the cleanup function to be called on script exit
     atexit.register(cleanupChromeProcesses)
-
     # Load previous day's points data
     previous_points_data = load_previous_points_data()
 
@@ -220,10 +219,10 @@ def executeBot(currentAccount, notifier: Notifier, args: argparse.Namespace):
         accountPointsCounter = Login(desktopBrowser).login()
         startingPoints = accountPointsCounter
         if startingPoints == "Locked":
-            notifier.send("🚫 Account is Locked", currentAccount)
+            notifier.send("ðŸš« Account is Locked", currentAccount)
             return 0
         if startingPoints == "Verify":
-            notifier.send("❗ Account needs to be verified", currentAccount)
+            notifier.send("â— Account needs to be verified", currentAccount)
             return 0
         logging.info(
             f"[POINTS] You have {desktopBrowser.utils.formatNumber(accountPointsCounter)} points on your account"
@@ -282,13 +281,13 @@ def executeBot(currentAccount, notifier: Notifier, args: argparse.Namespace):
         logging.info(
             f"[POINTS] You are now at {(desktopBrowser.utils.formatNumber((accountPointsCounter / goalPoints) * 100))}% of your goal ({goalTitle}) !\n"
         )
-        goalNotifier = f"🎯 Goal reached: {(desktopBrowser.utils.formatNumber((accountPointsCounter / goalPoints) * 100))}% ({goalTitle})"
+        goalNotifier = f"ðŸŽ¯ Goal reached: {(desktopBrowser.utils.formatNumber((accountPointsCounter / goalPoints) * 100))}% ({goalTitle})"
 
     notifier.send(
         "\n".join(
             [
-                f"⭐️ Points earned today: {desktopBrowser.utils.formatNumber(accountPointsCounter - startingPoints)}",
-                f"💰 Total points: {desktopBrowser.utils.formatNumber(accountPointsCounter)}",
+                f"â­ï¸ Points earned today: {desktopBrowser.utils.formatNumber(accountPointsCounter - startingPoints)}",
+                f"ðŸ’° Total points: {desktopBrowser.utils.formatNumber(accountPointsCounter)}",
                 goalNotifier,
             ]
         ),
@@ -352,11 +351,11 @@ def process_account_with_retry(currentAccount, notifier, args, previous_points_d
             retries -= 1
             if retries == 0:
                 notifier.send(
-                    "⚠️ Error occurred after 3 attempts, please check the log",
+                    "?? Error occurred after 3 attempts, please check the log",
                     currentAccount,
                 )
                 logging.error(
-                    f"[CRITICAL] ⚠️ Error occurred after 3 attempts. Closing thread! ⚠️ | {currentAccount.get('username', '')}"
+                    f"[CRITICAL] ?? Error occurred after 3 attempts. Closing thread! ?? | {currentAccount.get('username', '')}"
                 )
             else:
                 account_name2 = currentAccount.get("username", "")
