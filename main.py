@@ -102,7 +102,8 @@ def setupLogging(verbose_notifs, notifier):
             terminalHandler,
         ],
     )
-    
+
+
 def cleanupChromeProcesses():
     # Get the current user's PID
     current_pid = os.getpid()
@@ -122,6 +123,7 @@ def cleanupChromeProcesses():
 
     # Terminate child processes starting from the script's PID
     terminate_children(current_pid)
+
 
 def argumentParser() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="MS Rewards Farmer")
@@ -327,7 +329,7 @@ def save_previous_points_data(data):
         json.dump(data, file, indent=4)
 
 def process_account_with_retry(currentAccount, notifier, args, previous_points_data):
-    retries = 3
+    retries = 5
     while retries > 0:
         try:
             earned_points = executeBot(currentAccount, notifier, args)
@@ -359,6 +361,7 @@ def process_account_with_retry(currentAccount, notifier, args, previous_points_d
                 account_name2 = currentAccount.get("username", "")
                 logging.warning(f"Error occurred: {e}. Retrying... | {account_name2}")
                 time.sleep(10)  # Wait a bit before retrying
+
 
 if __name__ == "__main__":
     main()
