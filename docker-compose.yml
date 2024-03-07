@@ -2,10 +2,8 @@
     rewards-farmer1:
       image: farmer_ms:latest
       container_name: farmer1
-      shm_size: 6gb
-      command: bash -c "startlxde & vncserver -SecurityTypes=VeNCrypt,TLSVnc :1 -localhost no -geometry 1280x800 -depth 24 && DISPLAY=:1 bash -c 'python3 main.py <args of bot like -v -t >'"
-      ports:
-        - "5901:5901"
+      shm_size: 2gb
+      command: bash -c 'python3 main.py <args of bot like (no write -v) -t >'
       volumes:
         - ./accounts.json:/app/accounts.json
         - ./logs1:/app/logs
@@ -14,10 +12,8 @@
     rewards-farmer2:
       image: farmer_ms:latest
       container_name: farmer2
-      shm_size: 6gb
-      command: bash -c "startlxde & vncserver -SecurityTypes=VeNCrypt,TLSVnc :2 -localhost no -geometry 1280x800 -depth 24 && DISPLAY=:2 bash -c 'python3 main.py <args of bot like -v -t >'"
-      ports:
-        - "5902:5902"
+      shm_size: 2gb
+      command: bash -c 'python3 main.py <args of bot like (no write -v) -t >'
       volumes:
         - ./accounts2.json:/app/accounts.json
         - ./logs2:/app/logs
@@ -26,10 +22,8 @@
     rewards-farmer3:
       image: farmer_ms:latest
       container_name: farmer3
-      shm_size: 6gb
-      command: bash -c "startlxde & vncserver -SecurityTypes=VeNCrypt,TLSVnc :3 -localhost no -geometry 1280x800 -depth 24 && DISPLAY=:3 bash -c 'python3 main.py <args of bot like -v -t >'"
-      ports:
-        - "5903:5903"
+      shm_size: 2gb
+      command: bash -c 'python3 main.py <args of bot like (no write -v) -t >'
       volumes:
         - ./accounts3.json:/app/accounts.json
         - ./logs3:/app/logs
@@ -38,10 +32,8 @@
     rewards-farmer4:
       image: farmer_ms:latest
       container_name: farmer4
-      shm_size: 6gb
-      command: bash -c "startlxde & vncserver -SecurityTypes=VeNCrypt,TLSVnc :4 -localhost no -geometry 1280x800 -depth 24 && DISPLAY=:4 bash -c 'python3 main.py <args of bot like -v -t >'"
-      ports:
-        - "5904:5904"
+      shm_size: 2gb
+      command: bash -c 'python3 main.py <args of bot like (no write -v) -t >'
       volumes:
         - ./accounts4.json:/app/accounts.json
         - ./logs4:/app/logs
