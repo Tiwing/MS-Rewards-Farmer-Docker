@@ -351,7 +351,7 @@ def process_account_with_retry(currentAccount, notifier, args, previous_points_d
             retries -= 1
             if retries == 0:
                 notifier.send(
-                    "⚠️ Error occurred after 3 attempts, please check the log",
+                    "⚠️ Error occurred after 5 attempts, please check the log",
                     currentAccount,
                 )
                 logging.error(
