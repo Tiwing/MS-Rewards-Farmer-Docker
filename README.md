@@ -72,7 +72,7 @@ A container can have the same proxy in its `accounts.json` file, but different p
     ```text
       # MICROSOFT BOT
 
-      0 1 * * * sleep $(shuf -i 1-15 -n 1)m && /usr/bin/docker-compose -f /<path_to_repository>/docker-compose.yml up -d --build
+      0 10 * * * sleep $(shuf -i 1-15 -n 1)m && /usr/bin/docker-compose -f /<path_to_repository>/docker-compose.yml up -d --build
 
     ```
 
